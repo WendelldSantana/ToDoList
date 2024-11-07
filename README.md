@@ -1,4 +1,4 @@
-# Book Search and Shelf
+# Lista de tarefas
 
 Este é um projeto de uma aplicação de gereciamento de tarefas, onde os usuários pode colocar suas tarefas, custo e a data de validade.
 
