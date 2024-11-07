@@ -1,11 +1,14 @@
 const express = require('express');
-const banco = require('../database/config'); // Verifique se a configuração do banco está correta
-const cors = require('cors');
+const banco = require('./database/config'); // Verifique se a configuração do banco está correta
+const cors = require('cors')
 
 const app = express();
+const port = 3000;
+
+// Configuração do middleware
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static('Public'))
 // Rota para listar tarefas
 app.get('/tarefas', (req, res) => {
     const sql = 'SELECT id, nome, custo, data_limite, ordem_apresentacao FROM tarefas ORDER BY ordem_apresentacao';
@@ -53,6 +56,9 @@ app.put('/tarefas/:id', (req, res) => {
 
 // Rota para adicionar tarefa
 app.post('/tarefas', (req, res) => {
+
+    console.log(req.body);
+
     const { nome, custo, data_limite } = req.body;
 
     if (!nome || !custo || !data_limite) {
@@ -93,5 +99,9 @@ app.delete('/tarefas/:id', (req, res) => {
     });
 });
 
-// Exportando o app como uma função serverless
-module.exports = app;
+// Rota para a raiz do servidor
+
+// Iniciar servidor
+app.listen(port, () =>{
+    console.log(`Servidor rodando em http://localhost:${port}`)
+})
