@@ -1,0 +1,33 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefa</title>
+    <!-- Including Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Including Font Awesome for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="task-list-app">
+        <div class="add-task-container">
+            <h1 class="title">Lista de Tarefa</h1>
+            <form action="#" class="add-task" id="todo-add">
+                <input class="task-input" id="item-input" type="text" name="text" placeholder="Nome da tarefa">
+                <input class="task-input" id="item-cost" type="number" name="cost" placeholder="Custo" step="0.01" min="0">
+                <input class="task-input" id="item-due-date" type="date" name="due_date">
+                <input id="add-task-btn" type="submit" value="Add">
+            </form>
+        </div>
+
+        <div class="task-list-container">
+            <ul id="todo-list"></ul>
+        </div>
+    </div>
+
+    <!-- Link to the JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
