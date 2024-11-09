@@ -1,9 +1,11 @@
 const express = require('express');
-const banco = require('./database/config'); // Certifique-se de que a configuração do banco está correta
+const banco = require('./database/config'); // Verifique se a configuração do banco está correta
 const cors = require('cors');
-const serverless = require('serverless-http'); // Importa a função serverless
 
 const app = express();
+
+// Porta dinâmica: usa process.env.PORT se estiver disponível, senão usa a porta 3000.
+const port = process.env.PORT || 3000;
 
 // Configuração do middleware
 app.use(cors());
@@ -31,12 +33,12 @@ app.put('/tarefas/:id', (req, res) => {
         return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
     }
 
-    banco.query('SELECT * FROM tarefas WHERE nome = ?', [nome], (err, result) => {
+    banco.query('SELECT * FROM tarefas WHERE nome = ? AND id != ?', [nome, id], (err, result) => {
         if (err) {
             console.error('Erro ao verificar tarefa existente', err);
             return res.status(500).json({ error: 'Erro ao verificar tarefa' });
         }
-        
+
         if (result.length > 0) {
             return res.status(400).json({ error: 'Tarefa com este nome já existe' });
         }
@@ -63,13 +65,12 @@ app.post('/tarefas', (req, res) => {
         return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
     }
 
-    // Obtendo a última ordem de apresentação
     banco.query('SELECT MAX(ordem_apresentacao) AS maxOrder FROM tarefas', (err, result) => {
         if (err) {
             console.error('Erro ao obter ordem', err);
             return res.status(500).json({ error: 'Erro ao obter a ordem de tarefas' });
         }
-        
+
         const maxOrder = result[0].maxOrder || 0;
         const novaOrdem = maxOrder + 1;
 
@@ -97,5 +98,7 @@ app.delete('/tarefas/:id', (req, res) => {
     });
 });
 
-// Exporta a função Lambda
-module.exports.handler = serverless(app);
+// Iniciar servidor
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
+});

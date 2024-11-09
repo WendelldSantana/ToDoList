@@ -2,9 +2,12 @@
   "name": "to-do-list",
   "version": "1.0.0",
   "main": "server.js",
-  "start": "node server/app.js",
+  "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "build": "netlify deploy --prod"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,11 +16,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.1",
-    "mysql2": "^3.11.3",
-    "netlify-cli": "^17.37.2",
-    "netlify-lambda": "^2.0.16",
-    "serverless-http": "^2.7.0",
-    "verdaccio-audit": "^10.2.4",
-    "yaml": "^2.6.0"
+    "mysql2": "^3.11.3"
+
   }
 }
