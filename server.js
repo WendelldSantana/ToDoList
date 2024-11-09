@@ -1,10 +1,9 @@
-const express = require('express');
-const banco = require('./database/config'); // Verifique se a configuração do banco está correta
-const cors = require('cors');
+import express from 'express';
+import banco from './database/config.js'; 
+import cors from 'cors';
 
 const app = express();
 
-// Porta dinâmica: usa process.env.PORT se estiver disponível, senão usa a porta 3000.
 const port = process.env.PORT || 3000;
 
 // Configuração do middleware
