@@ -6,6 +6,8 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+const users = []
+
 // Configuração do middleware
 app.use(cors());
 app.use(express.json());
