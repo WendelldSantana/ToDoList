@@ -1,6 +1,8 @@
 (function () {
     "use strict";
 
+    const  baseUrl = "https://todolist-nine-vert.vercel.app/"
+
     // Definindo a função Task
     function Task(id, name, cost, dueDate, completed = false, createdAt = Date.now(), updatedAt = null) {
         if (!name) {
