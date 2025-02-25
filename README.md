@@ -1,5 +1,7 @@
 # Lista de tarefas
 
+## Descrição
+
 Este é um projeto de uma aplicação de gereciamento de tarefas, onde os usuários pode colocar suas tarefas, custo e a data de validade.
 
 ## Funcionalidades
@@ -10,8 +12,14 @@ Este é um projeto de uma aplicação de gereciamento de tarefas, onde os usuár
 
 ## Tecnologias Utilizadas
 
-- **Css**  para estilização.
-- **Express.js** para navegação.
-- **MySql** para amarzenamento de dados da lista
+- **Node.js**: Ambiente de execução JavaScript.
+- **Express**: Framework web para criação de APIs.
+- **MySQL2**: Biblioteca para interação com o banco de dados MySQL.
 
-## Acesso disponivel 
+## Pré-requisitos
+
+Certifique-se de ter as seguintes ferramentas instaladas:
+
+- Node.js
+- MySQL
+- npm ou yarn

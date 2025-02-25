@@ -69,7 +69,7 @@
         const costSpan = document.createElement("span");
         costSpan.className = "task-cost";
         costSpan.textContent = `R$ ${task.getCost()}`;
-        if (task.getCost() >= 1000) {
+        if (task.getCost() >= 100) {
             costSpan.classList.add("high-cost");
         }
         li.appendChild(costSpan);

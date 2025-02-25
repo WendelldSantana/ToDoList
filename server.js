@@ -2,6 +2,7 @@ import express from 'express';
 import banco from './database/config.js'; 
 import cors from 'cors';
 
+
 const app = express();
 
 const port = process.env.PORT || 3000;
